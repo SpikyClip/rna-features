@@ -1,0 +1,7 @@
+.venv
+.vscode
+*.ipynb
+*.log
+*.egg-info
+__pycache__
+rnafeatures/tests/data/
