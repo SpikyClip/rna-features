@@ -4,4 +4,4 @@
 *.log
 *.egg-info
 __pycache__
-rnafeatures/tests/data/
+tests/data/
