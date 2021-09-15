@@ -79,4 +79,4 @@ parser.add_argument(
 
 if __name__ == "__main__":
     args = parser.parse_args("-p 0.05 file1 file2".split())
-    print(repr(args))
+    print(args.long)
