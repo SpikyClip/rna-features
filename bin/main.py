@@ -7,13 +7,13 @@ from pathlib import Path
 import pandas as pd
 
 # Personal modules
-from rnafeatures.argparser import parser as my_parser
+from rnafeatures.utils.argparser import parser as main_parser
 from rnafeatures.expression.logfc_matrix import get_logfc_matrix
 from rnafeatures.expression.breadth import get_breadth_matrix
 from rnafeatures.expression.mad_max_med import get_mad_max_med_matrix
 
 # Setup logger
-logging.config.fileConfig("logging.conf")
+logging.config.fileConfig("../conf/logging.conf")
 logger = logging.getLogger(__name__)
 
 
@@ -60,7 +60,7 @@ def expr_main(dir_paths, alpha=0.05):
 
 
 if __name__ == "__main__":
-    test_arg = "-p 0.05 tests/data/input/set_1 tests/data/input/set_2"
-    args = my_parser.parse_args(test_arg.split())
+    test_arg = "-p 0.05 ../rnafeatures/tests/data/input/set_1 ../rnafeatures/tests/data/input/set_2"
+    args = main_parser.parse_args(test_arg.split())
     out = expr_main(args.dir, args.p)
     print(out)
