@@ -76,7 +76,3 @@ parser.add_argument(
     type=path_type,
     help="A list of dataset directories containing .csv DESeq2 log2 fold change output",
 )
-
-if __name__ == "__main__":
-    args = parser.parse_args("-p 0.05 file1 file2".split())
-    print(args.long)

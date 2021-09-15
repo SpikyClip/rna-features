@@ -63,12 +63,3 @@ def format_logfc_df(df, treatment_name):
         raise
 
     return df
-
-
-if __name__ == "__main__":
-    in_dir = Path("../tests/data/input")
-    out_dir = Path("../tests/data/output")
-    paths = list(in_dir.glob("*.csv"))
-    df = get_logfc_matrix(paths)
-    out_path = out_dir / "logfc_matrix.csv"
-    df.to_csv(out_path)
