@@ -44,7 +44,7 @@ def get_breadth_matrix(df, alpha=0.05):
 
 
 if __name__ == "__main__":
-    df = pd.read_csv("../tests/data/output/logfc_matrix.csv")
+    df = pd.read_csv("../../tests/data/output/logfc_matrix.csv")
     df.set_index(["treatment", "gene"], inplace=True)
     breadth_df = get_breadth_matrix(df)
     print(breadth_df)

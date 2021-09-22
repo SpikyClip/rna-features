@@ -8,7 +8,8 @@ logger = logging.getLogger(__name__)
 
 def get_logfc_matrix(paths):
     """
-    Combines contrast files and returns it as a matrix with a multi-level index.
+    Combines contrast files and returns it as a matrix with a multi-level
+    index.
     """
 
     # Output format

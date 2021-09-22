@@ -6,6 +6,7 @@ import pandas as pd
 from rnafeatures.expression.logfc_matrix import get_logfc_matrix
 from rnafeatures.expression.logfc_breadth import get_breadth_matrix
 from rnafeatures.expression.logfc_mmm import get_logfc_mmm_matrix
+from rnafeatures.expression.tpm_mmm import get_tpm_mmm_matrix
 
 # Setup logger
 logger = logging.getLogger(__name__)
@@ -21,11 +22,12 @@ def expr_main(dir_paths, alpha=0.05):
     processed_datasets = list()
 
     for dir in dir_paths:
-        paths = dir.glob("*.csv")
+        logfc_paths = dir.glob("*.csv")
+        tpm_path = list(dir.glob("*tpm.tsv"))[0]
         dataset_name = dir.name
 
         logger.info(f"Concatenating .csv files in '{dir}' into logfc matrix.")
-        df = get_logfc_matrix(paths)
+        df = get_logfc_matrix(logfc_paths)
 
         logger.info("Getting breadth matrix.")
         breadth_df = get_breadth_matrix(df, alpha)
@@ -33,9 +35,12 @@ def expr_main(dir_paths, alpha=0.05):
         logger.info("Getting logfc mad max med matrix.")
         mmm_df = get_logfc_mmm_matrix(df, alpha)
 
+        logger.info("Getting tpm mad max med matrix.")
+        tpm_df = get_tpm_mmm_matrix(tpm_path)
+
         # Combines breadth and mmm tables, adding a key for dataset
-        logger.info("Joining breadth and mmm matrices.")
-        exprs_df = pd.concat([breadth_df, mmm_df], axis=1)
+        logger.info("Joining breadth, logfc_mmm, and tpm_mmm matrices.")
+        exprs_df = pd.concat([breadth_df, mmm_df, tpm_df], axis=1)
         exprs_df = pd.concat([exprs_df], keys=[dataset_name], names=["dataset"])
 
         logger.info(f"Completed '{dataset_name}' expression matrix.\n")
