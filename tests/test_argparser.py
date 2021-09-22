@@ -41,6 +41,8 @@ def temp(tmp_path_factory):
         dir = temp / dataset
         dir.mkdir()
         if dataset != "empty":
+            tpm_tsv = dir / "tpm.tsv"
+            tpm_tsv.write_text("blank\n")
             for i in range(1, 4):
                 csv = dir / f"{i}.csv"
                 csv.write_text("blank\n")

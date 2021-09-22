@@ -48,6 +48,14 @@ def path_type(arg):
         msg = f"'{dir}' does not contain any *.csv files."
         raise argparse.ArgumentTypeError(msg)
 
+    elif not list(dir.glob("*tpm.tsv")):
+        msg = f"'{dir}' does not contain a *tpm.tsv file."
+        raise argparse.ArgumentTypeError(msg)
+
+    elif len(list(dir.glob("*tpm.tsv"))) > 1:
+        msg = f"'{dir}' contains more than one *tpm.tsv file:\n {list(dir.glob('*tpm.tsv'))}"
+        raise argparse.ArgumentTypeError(msg)
+
     else:
         return dir
 
