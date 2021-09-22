@@ -31,5 +31,5 @@ def get_logfc_mmm_matrix(df, alpha=0.05):
 if __name__ == "__main__":
     df = pd.read_csv("../../tests/data/output/logfc_matrix.csv")
     df.set_index(["treatment", "gene"], inplace=True)
-    mmm_df = get_mad_max_med_matrix(df)
+    mmm_df = get_logfc_mmm_matrix(df)
     print(mmm_df)
