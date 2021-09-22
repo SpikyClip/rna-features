@@ -65,8 +65,11 @@ def path_type(arg):
 #
 
 desc = (
-    "Generates machine-learning features from a list of dataset "
-    "directories containing DESeq2 log2 fold change data in .csv format."
+    "Generates machine-learning features from RNAseq data.\n\n"
+    "Takes a list of directories containing DESeq2 contrast files (.csv) "
+    "and a 'tpm.tsv' file (containing a matrix of tpm values of genes against "
+    "sample) returning a 'feature_matrix.csv' containing gene expression "
+    "breadth and log2fc/tpm mad, max and median for each gene."
 )
 
 parser = argparse.ArgumentParser(description=desc)
@@ -76,11 +79,11 @@ parser.add_argument(
     default=0.05,
     metavar="p-value",
     type=p_val_type,
-    help="A p-value cutoff for filtering log2 fold change values before feature generation",
+    help="p-value cutoff for filtering log2fc values [default: 0.05]",
 )
 parser.add_argument(
     "dir",
     nargs="+",
     type=path_type,
-    help="A list of dataset directories containing .csv DESeq2 log2 fold change output",
+    help="Dataset directories containing DESeq2 contrast files (.csv) and a 'tpm.tsv' matrix file.",
 )
