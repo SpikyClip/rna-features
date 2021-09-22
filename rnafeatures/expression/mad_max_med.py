@@ -9,10 +9,10 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 
 
-def get_mad_max_med_matrix(df, alpha=0.05):
+def get_logfc_mmm_matrix(df, alpha=0.05):
     """
-    For each gene, get the median absolute deviation (MAD), max, and median
-    values across treatments.
+    For each gene, get the logfc median absolute deviation (MAD), max, and
+    median values across treatments.
     """
     # Significance filter
     sig = df["padj"] <= alpha
