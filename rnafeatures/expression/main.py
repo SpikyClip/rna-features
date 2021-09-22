@@ -4,7 +4,7 @@ import logging
 import pandas as pd
 
 from rnafeatures.expression.logfc_matrix import get_logfc_matrix
-from rnafeatures.expression.breadth import get_breadth_matrix
+from rnafeatures.expression.logfc_breadth import get_breadth_matrix
 from rnafeatures.expression.logfc_mmm import get_logfc_mmm_matrix
 
 # Setup logger
