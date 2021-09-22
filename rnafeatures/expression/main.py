@@ -5,7 +5,7 @@ import pandas as pd
 
 from rnafeatures.expression.logfc_matrix import get_logfc_matrix
 from rnafeatures.expression.breadth import get_breadth_matrix
-from rnafeatures.expression.mad_max_med import get_mad_max_med_matrix
+from rnafeatures.expression.logfc_mmm import get_logfc_mmm_matrix
 
 # Setup logger
 logger = logging.getLogger(__name__)
@@ -30,8 +30,8 @@ def expr_main(dir_paths, alpha=0.05):
         logger.info("Getting breadth matrix.")
         breadth_df = get_breadth_matrix(df, alpha)
 
-        logger.info("Getting mad max med matrix.")
-        mmm_df = get_mad_max_med_matrix(df, alpha)
+        logger.info("Getting logfc mad max med matrix.")
+        mmm_df = get_logfc_mmm_matrix(df, alpha)
 
         # Combines breadth and mmm tables, adding a key for dataset
         logger.info("Joining breadth and mmm matrices.")
