@@ -94,6 +94,21 @@ rna-features -p 0.005 dataset_1 dataset_2 dataset_3
 ```
 
 ### Additional Notes
+* The contrast files (`*.csv`) should be in the following format:
+  ```
+                  "",      "baseMean", "log2FoldChange",          "lfcSE",           "stat",            "pvalue",              "padj"
+  "Solyc01g005000.3",4496.05232181299, 1.09719580776875,0.313072912511878, 3.50460152865228,0.000457291165260712, 0.0115280270712814
+  "Solyc01g005340.3",540.376944106274, 0.52013987940027,0.170624565359894, 3.04844661906186,  0.0023002777636722, 0.0362570019128406
+  "Solyc01g005390.3",16.4785747787331,-1.85885261292963,0.471053842373692,-3.94615741496274,7.94154133931579e-05,0.00287540425470711
+  "Solyc01g005410.4",1181.71130130374, 1.37296624988023,0.394738835793252, 3.47816359928501,0.000504861691439399, 0.0125485785916511
+  ```
+* The tpm matrix (`tpm.tsv`) should be in the tab-delimited following format:
+  ```
+  gene_id01-0-hr-C1	02-0-hr-C2	03-0-hr-C3	04-0-hr-JA1
+  Solyc00g500003.1	0.030844	0.011062	0.006824
+  Solyc00g500041.1	1.515571	1.78357	1.503047
+  Solyc00g500042.1	0.258916	0.273953	0.248473
+  ```
 * `NaN` values may occur in the `regulation` and `log2foldchange` columns if the
   `tpm.tsv` matrix contains a broader set of genes than those found in the
   contrast files. Such `NaN` files have to be processed by the user.
