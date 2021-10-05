@@ -44,9 +44,13 @@ set_2   Solyc12g150103.1        0.0     2.0  3.0       0.245354   1.598051   1.0
 ## Installation
 
 To install `rna-features`, pull the repo to a folder, `cd` into the folder, and
-install with `pip`:
+install with `pip` in an environment with `python>=3.9`:
 
 ```console
+git clone https://github.com/SpikyClip/rna-features.git
+
+cd rna-features
+
 pip install .
 ```
 
