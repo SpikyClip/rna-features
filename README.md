@@ -43,15 +43,15 @@ set_2   Solyc12g150103.1        0.0     2.0  3.0       0.245354   1.598051   1.0
 
 ## Installation
 
-To install `rna-features`, pull the repo to a folder, `cd` into the folder, and
-install with `pip` in an environment with `python>=3.9`:
+To install `rna-features`, download the latest `.whl` binary from the
+[releases](https://github.com/SpikyClip/rna-features/releases) page and install
+using `pip`(note: the package is not currently installable with python 3.10, as
+dependencies such as `numpy` have not yet released compatible wheels):
 
 ```console
-git clone https://github.com/SpikyClip/rna-features.git
+wget https://github.com/SpikyClip/rna-features/releases/download/0.1.1-dev/rna_features-0.1.1-py3-none-any.whl
 
-cd rna-features
-
-pip install .
+pip install rna_features-0.1.1-py3-none-any.whl
 ```
 
 This will install `rna-features` as a python package, and `rna-features` will
